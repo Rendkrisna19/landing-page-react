@@ -30,7 +30,7 @@ const FavoritMenu = () => {
   }, [totalSlides]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto text-center py-10" id="menu">
+    <div className="w-full max-w-6xl mx-auto text-center py-10 px-4 md:px-8" id="menu">
       <h2 className="text-2xl font-bold mb-6">Favorite Menu</h2>
 
       {/* Carousel Container */}
@@ -44,11 +44,14 @@ const FavoritMenu = () => {
               {menuItems
                 .slice(slideIndex * itemsPerSlide, slideIndex * itemsPerSlide + itemsPerSlide)
                 .map((item, index) => (
-                  <div key={index} className="flex flex-col items-center">
+                  <div
+                    key={index}
+                    className="flex flex-col items-center bg-white border border-gray-300 rounded-xl shadow-lg p-4"
+                  >
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-44 h-44 rounded-full object-cover shadow-lg"
+                      className="w-40 h-40 rounded-full object-cover shadow-md"
                     />
                     <h3 className="mt-4 font-semibold text-lg">{item.title}</h3>
                     <p className="text-sm text-gray-600">{item.description}</p>

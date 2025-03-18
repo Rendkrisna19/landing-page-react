@@ -7,15 +7,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full fixed top-0 left-0 bg-white shadow-md z-50 p-4 border-b border-gray-300 flex justify-between items-center">
+    <nav className="w-full fixed top-0 left-0 bg-white shadow-md z-50 p-4 border-b border-gray-300 flex justify-between items-center px-6">
       {/* Logo + Text */}
       <div className="flex items-center gap-2">
-        <img src={Logo} alt="Logo" className="w-12 h-12" />
-        <span className="text-lg font-bold text-gray-800">Fast Food</span>
+        <img src={Logo} alt="Logo" className="w-14 h-14" />
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-6 text-sm font-semibold ">
+      <ul className="hidden md:flex gap-6 text-sm font-semibold">
         {[
           { name: "Menu", to: "menu" },
           { name: "Promo", to: "promo" },
@@ -28,7 +27,7 @@ const Navbar = () => {
               to={item.to}
               smooth={true}
               duration={500}
-              offset={-80} // Menyesuaikan dengan tinggi navbar
+              offset={-80} // Sesuaikan dengan tinggi navbar
               className="cursor-pointer text-pink-600 hover:text-gray-600 transition-all duration-300"
             >
               {item.name}
@@ -37,8 +36,8 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Hamburger Menu */}
-      <div className="md:hidden">
+      {/* Hamburger Menu - Diberi Jarak Sedikit dari Ujung Kanan */}
+      <div className="md:hidden pr-3">
         <button onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
         </button>
