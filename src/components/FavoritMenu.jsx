@@ -6,6 +6,8 @@ import Img3 from "../assets/menu3.jpg";
 import Img4 from "../assets/menu4.jpg";
 import Img5 from "../assets/burger.jpg";
 import Img6 from "../assets/menu6.jpg";
+import BgLeft from "../assets/bayam.png"; // Gambar background kiri
+import BgRight from "../assets/jamur.png"; // Gambar background kanan
 
 const menuItems = [
   { image: Img1, title: "Nasi Goreng", description: "Nasi goreng spesial dengan topping lezat." },
@@ -30,8 +32,20 @@ const FavoritMenu = () => {
   }, [totalSlides]);
 
   return (
-    <div className="w-full max-w-6xl mx-auto text-center py-10 px-4 md:px-8" id="menu">
-      <h2 className="text-2xl font-bold mb-6">Favorite Menu</h2>
+    <div className="relative w-full max-w-6xl mx-auto text-center py-10 px-4 md:px-8 overflow-hidden" id="menu">
+      {/* Background Images */}
+      <img
+        src={BgLeft}
+        alt="Background Left"
+        className="absolute left-0 md:left-[-80px] top-[-50px] md:top-[-70px] max-w-[100px] md:max-w-[300px] opacity-50 pointer-events-none"
+      />
+      <img
+        src={BgRight}
+        alt="Background Right"
+        className="absolute right-0 md:right-[-90px] top-[-100px] md:top-[-90px] max-w-[100px] md:max-w-[300px] opacity-50 pointer-events-none"
+      />
+
+      <h2 className="text-2xl font-bold mb-6 relative z-10">Favorite Menu</h2>
 
       {/* Carousel Container */}
       <div className="relative overflow-hidden">
@@ -46,7 +60,7 @@ const FavoritMenu = () => {
                 .map((item, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center bg-white border border-gray-300 rounded-xl shadow-lg p-4"
+                    className="flex flex-col items-center bg-white border border-gray-300 rounded-xl shadow-lg p-4 relative z-10"
                   >
                     <img
                       src={item.image}
